@@ -4,8 +4,22 @@
     {
         static void Main(string[] args)
         {
-            EnumerateNums(10);
-            Console.WriteLine();
+            if (args.Length > 0)
+            {
+                foreach(var arg in args)
+                {
+                    if(int.TryParse(arg, out int num))
+                    {
+                        EnumerateNums(num);
+                        Console.WriteLine();
+                    }
+                }
+            }
+            else
+            {
+                EnumerateNums(10);
+                Console.WriteLine();
+            }
         }
 
         static void EnumerateNums(int num)
